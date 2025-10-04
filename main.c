@@ -224,7 +224,7 @@ int main(int argc, char *argv[]) {
 
 	char data[MAX_DATA_LENGTH];
 	if (found_points.open == -1) {
-		fprintf(stderr, "The data was not found at the given path.");
+		fprintf(stderr, "The data was not found at the given path.\n");
 	} else {
 		get_data(smd, &found_points, data);
 		fprintf(stdout, "%s", data);
