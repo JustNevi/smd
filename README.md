@@ -1,0 +1,15 @@
+```
+~
+~It is SMD - Simple Markup Data
+~
+<user#
+	<jid#
+		userjid
+	$>
+	<sig#signature$>
+	<message#
+		<tag#super_tag$>
+		<body#text_here$>
+	$>
+$>
+```
