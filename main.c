@@ -180,6 +180,11 @@ void find_points(pointed_smd_t *pointed_smd, unit_array_t *unit_array, unit_poin
 		*points = unit_points;
 		return;
 	}
+
+	points->open = -1;
+	points->data = -1;
+	points->close = -1;
+	points->level = -1;
 }
 
 void free_unit_array(unit_array_t *unit_array) {
@@ -218,10 +223,12 @@ int main(int argc, char *argv[]) {
 	find_points(&pointed_smd, unit_array, &found_points);
 
 	char data[MAX_DATA_LENGTH];
-	get_data(smd, &found_points, data);
-
-
-	fprintf(stdout, "%s", data);
+	if (found_points.open == -1) {
+		fprintf(stderr, "The data was not found at the given path.");
+	} else {
+		get_data(smd, &found_points, data);
+		fprintf(stdout, "%s", data);
+	}
 
 	free_unit_array(unit_array);
 	free(smd);
